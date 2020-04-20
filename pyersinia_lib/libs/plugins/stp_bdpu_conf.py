@@ -23,10 +23,10 @@ def run(inter):
                 # Root Identifier 8 bytes (MAC and root priority)
 
                 srcMAC = str(RandMAC())     # Random MAC in each iteration
-                root_prior = RandInt() % 65536  # 2 bytes
+                root_prior = int(RandInt()) % 65536  # 2 bytes
 
                 # Brigde Identifier (mac and brigde priority)
-                brigde_prior = RandInt() % 65536  # 2 bytes
+                brigde_prior = int(RandInt()) % 65536  # 2 bytes
 
                 # dst=Ethernet Multicast address used for spanning tree protocol
                 p_ether = Dot3(dst="01:80:c2:00:00:00", src=srcMAC)
