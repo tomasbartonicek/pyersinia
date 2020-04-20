@@ -125,7 +125,7 @@ def is_DHCP(pkt):
 
         if messageType == 1:
             six.print_(colored("\n[!]", "red"), "DHCP DISCOVER LISTEN")
-            print pkt.summary()
+            print(pkt.summary())
 
             ipClient = str(range_ip[-1])
 
@@ -143,11 +143,11 @@ def is_DHCP(pkt):
 
             sendp(dhcp_offer, iface=interface, verbose=0)
             six.print_(colored("\n[!]", "red"), "DHCP OFFER SEND")
-            print dhcp_offer.summary()
+            print(dhcp_offer.summary())
 
         if messageType  == 3:
             six.print_(colored("\n[!]", "red"), "DHCP REQUEST LISTEN")
-            print pkt.summary()
+            print(pkt.summary())
             ipClient = str(range_ip.pop())
             ether = Ether(dst="ff:ff:ff:ff:ff:ff")
             ip = IP(src=ipServer, dst="255.255.255.255")
@@ -161,4 +161,4 @@ def is_DHCP(pkt):
 
             sendp(ack, iface=interface, verbose=0)
             six.print_(colored("\n[!]", "red"), "DHCP ACK SEND")
-            print ack.summary()
+            print(ack.summary())
